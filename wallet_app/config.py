@@ -21,6 +21,10 @@ class DbConfig(BaseModel):
     def url(self) -> str:
         return f"{self.dialect}+{self.engine}://{self.user}:{self.password}@{self.host}:{self.port}/{self.database}"
 
+    @property
+    def sync_url(self) -> str:
+        return f"{self.dialect}+psycopg://{self.user}:{self.password}@{self.host}:{self.port}/{self.database}"
+
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(

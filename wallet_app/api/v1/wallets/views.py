@@ -35,7 +35,11 @@ async def get_balance(
 
 @router.post("/", response_model=WalletReadSchema)
 async def create_wallet(
-    wallet: WalletCreateSchema, crud: Annotated[WalletCRUD, Depends(wallet_crud)]
+    wallet: WalletCreateSchema,
+    crud: Annotated[
+        WalletCRUD,
+        Depends(wallet_crud),
+    ],
 ) -> Wallet:
     return await crud.create(wallet)
 
@@ -45,7 +49,10 @@ async def wallet_operation(
     wallet_uuid: UUID,
     operation_type: OperationTypeSchema,
     amount: Decimal,
-    crud: Annotated[WalletCRUD, Depends(wallet_crud)],
+    crud: Annotated[
+        WalletCRUD,
+        Depends(wallet_crud),
+    ],
 ) -> Wallet:
     try:
         return await crud.operation(wallet_uuid, operation_type, amount)

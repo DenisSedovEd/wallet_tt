@@ -2,5 +2,5 @@ class WalletNotFound(Exception):
     pass
 
 
-class WalletOverdraft(Exception):
+class NotEnoughBalanceError(Exception):
     pass

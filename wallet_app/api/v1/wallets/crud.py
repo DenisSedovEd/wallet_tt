@@ -6,7 +6,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from models import Wallet
 from schemas.wallet import WalletCreateSchema
 from schemas.operation import OperationTypeSchema
-from exceptions import WalletNotFound, WalletOverdraft
+from exceptions import WalletNotFound, NotEnoughBalanceError
 
 
 class WalletCRUD:
@@ -52,7 +52,7 @@ class WalletCRUD:
             wallet.balance += amount
         elif op_type == OperationTypeSchema.WITHDRAW:
             if wallet.balance < amount:
-                raise WalletOverdraft(
+                raise NotEnoughBalanceError(
                     f"На кошельке {wallet_uuid} недостаточно средств."
                 )
             wallet.balance -= amount

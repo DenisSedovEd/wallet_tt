@@ -31,7 +31,7 @@ def event_loop():
 def test_app():
     """
     Создание экземпляра FastAPI приложения и подключение роутов.
-    :return:
+    :return: экземпляра FastAPI приложения
     """
     app = FastAPI()
     app.include_router(wallets_router)
@@ -42,7 +42,7 @@ def test_app():
 def wallet_factory():
     """
     Создание разных кошельков с уникальным uuid.
-    :return:
+    :return: Фабрика wallet
     """
 
     def _factory(balance=Decimal("100.00")):
@@ -55,8 +55,8 @@ def wallet_factory():
 def mock_crud(wallet_factory):
     """
     Создание мокового crud.
-    :param wallet_factory:
-    :return:
+    :param wallet_factory: Фабрика wallet
+    :return: moc crud
     """
     crud = MagicMock()
     crud.get_by_uuid = AsyncMock()

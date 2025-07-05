@@ -45,7 +45,7 @@ async def test_create_wallet_success(client, mock_crud):
 @pytest.mark.asyncio
 async def test_create_wallet_invalid_body(client):
     """
-    Невалидный ответ баланса кошелька.
+    Невалидный ответ баланса кошелька. В случае задания баланса при создании кошелька.
     :param client:
     :return:
     """

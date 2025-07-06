@@ -14,11 +14,6 @@ from api.v1.wallets.dependecies import wallet_crud
 router = APIRouter(prefix="/wallets", tags=["wallets"])
 
 
-@router.get("/")
-async def index():
-    return {"message": "Wallet API"}
-
-
 @router.get("/{wallet_uuid}", response_model=WalletReadBalanceSchema)
 async def get_balance(
     wallet_uuid: UUID,

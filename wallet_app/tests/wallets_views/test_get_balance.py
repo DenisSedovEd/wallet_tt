@@ -25,7 +25,8 @@ async def test_get_balance_success(client, mock_crud, wallet_factory):
 @pytest.mark.asyncio
 async def test_get_balance_not_found(client, mock_crud):
     """
-    Тестирование не найденного кошелька. Генерируем uuid в тесте, вместо созданного ранее.
+    Тестирование не найденного кошелька.
+    Генерируем uuid в тесте, вместо созданного ранее.
     :param client:
     :param mock_crud:
     :return:

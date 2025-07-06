@@ -47,7 +47,10 @@ async def test_wallet_operation_withdraw_not_enough_balance(
     mock_crud.operation.side_effect = NotEnoughBalanceError("Недостаточно средств")
 
     url = f"/wallet/{wallet.uuid}/operation"
-    body = {"operation_type": OperationTypeSchema.WITHDRAW.value, "amount": "20.00"}
+    body = {
+        "operation_type": OperationTypeSchema.WITHDRAW.value,
+        "amount": "20.00",
+    }
     resp = await client.post(url, json=body)
     assert resp.status_code in (400, 404, 422, 500)
 
@@ -81,7 +84,10 @@ async def test_wallet_operation_not_found(client, mock_crud):
     mock_crud.operation.side_effect = WalletNotFound(fake_uuid)
 
     url = f"/{fake_uuid}/operation"
-    body = {"operation_type": OperationTypeSchema.DEPOSIT.value, "amount": "100.00"}
+    body = {
+        "operation_type": OperationTypeSchema.DEPOSIT.value,
+        "amount": "100.00",
+    }
     resp = await client.post(url, json=body)
     assert resp.status_code in (404, 400, 500)
 
@@ -118,7 +124,8 @@ async def test_wallet_operation_parametrized(
     client, mock_crud, wallet_factory, op_type, amount, expected_status
 ):
     """
-    Параметризованный тест для разных сценариев операций - успешная операция, невалидные параметры, невалидный тип операции.
+    Параметризованный тест для разных сценариев операций - успешная операция,
+    невалидные параметры, невалидный тип операции.
 
     :param client:
     :param mock_crud:

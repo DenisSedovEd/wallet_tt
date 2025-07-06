@@ -19,11 +19,17 @@ class DbConfig(BaseModel):
 
     @property
     def url(self) -> str:
-        return f"{self.dialect}+{self.engine}://{self.user}:{self.password}@{self.host}:{self.port}/{self.database}"
+        return (
+            f"{self.dialect}+{self.engine}://{self.user}:{self.password}"
+            f"@{self.host}:{self.port}/{self.database}"
+        )
 
     @property
     def sync_url(self) -> str:
-        return f"{self.dialect}+psycopg://{self.user}:{self.password}@{self.host}:{self.port}/{self.database}"
+        return (
+            f"{self.dialect}+psycopg://{self.user}:{self.password}"
+            f"@{self.host}:{self.port}/{self.database}"
+        )
 
 
 class Settings(BaseSettings):
@@ -41,7 +47,3 @@ class Settings(BaseSettings):
 
 # noinspection PyArgumentList
 settings = Settings()
-
-if __name__ == "__main__":
-    print(BASE_DIR)
-    print(settings.model_dump_json(indent=2))

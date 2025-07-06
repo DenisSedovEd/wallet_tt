@@ -7,7 +7,11 @@ from fastapi import APIRouter, Depends, HTTPException
 from api.v1.wallets.crud import WalletCRUD
 from exceptions import WalletNotFound, NotEnoughBalanceError
 from models import Wallet
-from schemas.wallet import WalletCreateSchema, WalletReadSchema, WalletReadBalanceSchema
+from schemas.wallet import (
+    WalletCreateSchema,
+    WalletReadSchema,
+    WalletReadBalanceSchema,
+)
 from schemas.operation import OperationTypeSchema
 from api.v1.wallets.dependecies import wallet_crud
 
@@ -39,7 +43,10 @@ async def create_wallet(
     return await crud.create(wallet)
 
 
-@router.post("/{wallet_uuid}/operation", response_model=WalletReadBalanceSchema)
+@router.post(
+    "/{wallet_uuid}/operation",
+    response_model=WalletReadBalanceSchema,
+)
 async def wallet_operation(
     wallet_uuid: UUID,
     operation_type: OperationTypeSchema,

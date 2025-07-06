@@ -2,7 +2,6 @@ from decimal import Decimal
 from uuid import UUID
 
 from pydantic import BaseModel, ConfigDict
-from sqlalchemy.orm import Mapped
 
 
 class WalletCreateSchema(BaseModel):
@@ -26,7 +25,7 @@ class WalletReadSchema(BaseModel):
 
 class WalletReadBalanceSchema(BaseModel):
     """
-    Схема чтения баланса кошелько по uuid.
+    Схема чтения баланса кошелька по uuid.
     """
 
     balance: Decimal

@@ -1,16 +1,14 @@
 import pytest
 import pytest_asyncio
-from uuid import uuid4, UUID
+from uuid import uuid4
 from decimal import Decimal
 
-from fastapi import FastAPI, status
+from fastapi import FastAPI
 from httpx import AsyncClient, ASGITransport
 
 from unittest.mock import AsyncMock, MagicMock
 
 from api.v1.wallets.views import router as wallets_router
-from schemas.wallet import WalletCreateSchema
-from schemas.operation import OperationTypeSchema
 from models.wallet import Wallet
 
 

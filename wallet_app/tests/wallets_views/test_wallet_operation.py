@@ -1,7 +1,7 @@
-import pytest
-from uuid import uuid4
 from decimal import Decimal
+from uuid import uuid4
 
+import pytest
 from schemas.operation import OperationTypeSchema
 
 

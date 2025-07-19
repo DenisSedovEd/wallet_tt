@@ -1,6 +1,7 @@
-import pytest
-from uuid import uuid4
 from decimal import Decimal
+from uuid import uuid4
+
+import pytest
 
 
 @pytest.mark.asyncio

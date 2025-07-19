@@ -1,9 +1,9 @@
-from typing import AsyncGenerator, Annotated
+from typing import Annotated, AsyncGenerator
 
 from fastapi import Depends
+from models.db import session_factory
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from models.db import session_factory
 from .crud import WalletCRUD
 
 

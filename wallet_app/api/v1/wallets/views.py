@@ -2,17 +2,17 @@ from decimal import Decimal
 from typing import Annotated
 from uuid import UUID
 
+from exceptions import NotEnoughBalanceError, WalletNotFound
 from fastapi import APIRouter, Depends, HTTPException
-
-from api.v1.wallets.crud import WalletCRUD
-from exceptions import WalletNotFound, NotEnoughBalanceError
 from models import Wallet
+from schemas.operation import OperationTypeSchema
 from schemas.wallet import (
     WalletCreateSchema,
-    WalletReadSchema,
     WalletReadBalanceSchema,
+    WalletReadSchema,
 )
-from schemas.operation import OperationTypeSchema
+
+from api.v1.wallets.crud import WalletCRUD
 from api.v1.wallets.dependecies import wallet_crud
 
 router = APIRouter(prefix="/wallets", tags=["wallets"])

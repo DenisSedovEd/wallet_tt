@@ -1,11 +1,10 @@
-import pytest
-from uuid import uuid4
 from decimal import Decimal
+from uuid import uuid4
 
+import pytest
 from fastapi import status
-from schemas.wallet import WalletCreateSchema
 from models.wallet import Wallet
-
+from schemas.wallet import WalletCreateSchema
 
 # @pytest.mark.asyncio
 # async def test_index(client):

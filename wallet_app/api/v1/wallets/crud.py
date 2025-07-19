@@ -1,12 +1,11 @@
 from decimal import Decimal
-
 from uuid import UUID
 
-from sqlalchemy.ext.asyncio import AsyncSession
+from exceptions import NotEnoughBalanceError, WalletNotFound
 from models import Wallet
-from schemas.wallet import WalletCreateSchema
 from schemas.operation import OperationTypeSchema
-from exceptions import WalletNotFound, NotEnoughBalanceError
+from schemas.wallet import WalletCreateSchema
+from sqlalchemy.ext.asyncio import AsyncSession
 
 
 class WalletCRUD:

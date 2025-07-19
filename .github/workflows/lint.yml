@@ -21,4 +21,4 @@ jobs:
         uv sync --locked
     - name: Analysing the code with ruff
       run: |
-        un run ruff check .
+        uv run ruff check .

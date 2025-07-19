@@ -21,4 +21,4 @@ jobs:
         uv sync --locked
     - name: Test with pytest
       run: |
-        гм run pytest -s --cov --cov-report html --cov-fail-under 92
+        uv run pytest -s --cov --cov-report html --cov-fail-under 92

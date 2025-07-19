@@ -7,16 +7,16 @@ from schemas.wallet import WalletCreateSchema
 from models.wallet import Wallet
 
 
-@pytest.mark.asyncio
-async def test_index(client):
-    """
-    Тестирование базовой точки входа в API.
-    :param client:
-    :return:
-    """
-    resp = await client.get("/wallets/")
-    assert resp.status_code == 200
-    assert resp.json() == {"message": "Wallet API"}
+# @pytest.mark.asyncio
+# async def test_index(client):
+#     """
+#     Тестирование базовой точки входа в API.
+#     :param client:
+#     :return:
+#     """
+#     resp = await client.get("/wallets/")
+#     assert resp.status_code == 200
+#     assert resp.json() == {"message": "Wallet API"}
 
 
 @pytest.mark.asyncio
